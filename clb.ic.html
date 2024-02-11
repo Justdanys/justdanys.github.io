@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firma CLB</title>
+    <style>
+        /* Styly zde */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding-top: 80px; /* aby obsah nebyl zakryt hlavičkou */
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Firma CLB</h1>
+        <nav>
+            <ul>
+                <li><a href="#o-nas">O nás</a></li>
+                <li><a href="#sluzby">Služby</a></li>
+                <li><a href="#kariera">Kariéra</a></li>
+                <li><a href="https://leosight.cz/forum/topic/15498" target="_blank">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <br>
+        <br>
+        <section id="o-nas">
+
+          
+            <h2>O nás</h2>
+            <p>Jsme zavedenou firmou specializující se na fast food a pečlivou péči o naše pobočky. Jsme hrdí na naši kvalitní nabídku jídel a poskytujeme nezapomenutelný zážitek pro naše zákazníky po celém San Andreas.</p>
+            <!-- Další obsah o firmě -->
+        </section>
+        <section id="sluzby">
+            <h2>Naše služby</h2>
+            <ul>
+                <li>Web design a vývoj</li>
+                <li>Digitální marketing</li>
+                <li>Softwarové aplikace na míru</li>
+                <!-- Další služby -->
+            </ul>
+        </section>
+        <section id="kariera">
+            <h2>Kariéra</h2>
+            <p>Vítejte ve světě příležitostí! Pokud jste ambiciózní a kreativní jedinec, hledáme právě vás.</p>
+            <p>Aktuálně nabízíme následující pracovní pozice:</p>
+            <ul>
+                <li>Zaměstnanec - sídlo MG (rozvoz balíčků a střežení objektu po Red County)</li>
+                <br>
+                <li>Zaměstnanec - sídlo SF (přeprava hotovosti, kamionová doprava, elektrikářské služby</li>
+                <br>
+                <li>Vedení společnosti (MNG,HR)</li>
+                <br>
+                <!-- Další pracovní pozice -->
+            </ul>
+            <p>Pokud jste se nenašli v naší nabídce, ale cítíte, že byste mohli přinést hodnotu do našeho týmu, neváhejte nás kontaktovat.</p>
+            <button onclick="window.open('https://leosight.cz/forum/topic/15498', '_blank')">Kontaktujte nás</button>
+        </section>
+        <section id="kontakt">
+            <h2>Kontaktujte nás</h2>
+            <address>
+                Firma CLB<br>
+                Adresa: San Fierro, Garcia<br>
+                Email: sindy.blue@post.ic<br>
+                <br>
+                <br>
+                <br>
+            </address>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Firma Cluckin Bell. Všechna práva vyhrazena.</p>
+    </footer>
+
+    <!-- Skript pro plynulé scrollování -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
