@@ -44,6 +44,10 @@
         .kontakt, .kontakt-more-info {
             background-color: #b50e30; /* Červený rám rám pro Kontakt */
         }
+         }
+        .cenik, .cenik-more-info {
+            background-color: #b50e30; /* Červený rám rám pro Kontakt */
+        }
         .gray-frame {
             background-color: #ccc; /* Šedý rám */
             padding: 10px;
@@ -59,7 +63,6 @@
             border-radius: 5px;
             color: #fff; /* Bílá barva textu */
             text-align: center;
-            cursor: pointer; /* Přidá kurzor ukazující na možnost interakce */
             margin: 0 10px 20px; /* Mezera dolů */
         }
         .more-info1 {
@@ -69,7 +72,6 @@
             border-radius: 5px;
             color: #fff; /* Bílá barva textu */
             text-align: center;
-            cursor: pointer; /* Přidá kurzor ukazující na možnost interakce */
             margin: 0 10px 20px; /* Mezera dolů */
         } 
      .more-info2 {
@@ -79,7 +81,16 @@
             border-radius: 5px;
             color: #fff; /* Bílá barva textu */
             text-align: center;
-            cursor: pointer; /* Přidá kurzor ukazující na možnost interakce */
+            margin: 0 10px 20px; /* Mezera dolů */
+        }
+        } 
+     .more-info3 {
+            width: calc(100% - 20px); /* Rozšíření na plnou šířku s mezerou */
+            background-color:  #7147DA; /* Oranžový rám pro "Více informací" */
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff; /* Bílá barva textu */
+            text-align: center;
             margin: 0 10px 20px; /* Mezera dolů */
         }
     </style>
@@ -97,6 +108,9 @@
         </div>
         <div class="section kontakt" onclick="scrollToKontakt()">
             <h2>Kontakt</h2>
+        </div>
+        <div class="section cenik" onclick="scrollToCenik()">
+            <h2>Ceník</h2>
         </div>
     </div>
     <div class="container">
@@ -152,7 +166,7 @@
         </div>
     </div>
      <div class="container">
-          <div id="kontakt-more-info" class="more-info2">
+          <div id="cenik-more-info" class="more-info3">
      <h2>Ceník - Mgr. Emily Penner Ph.D.</h2>
     <table>
         <tr>
@@ -193,6 +207,12 @@
 
         function scrollToKontakt() {
             var kontaktFrame = document.getElementById("kontakt-more-info");
+            kontaktFrame.scrollIntoView({ behavior: 'smooth' });
+        }
+         }
+
+        function scrollToKontakt() {
+            var kontaktFrame = document.getElementById("cenik-more-info");
             kontaktFrame.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
