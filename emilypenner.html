@@ -3,215 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mgr. Emily Penner Ph.D - Psycholožka</title>
+    <title>Mgr. Emily Penner Ph.D. | Psychologická praxe</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #4a6b82;      /* Elegant slate blue */
+            --primary-dark: #354f62; /* Deeper slate */
+            --accent: #9fb8c7;       /* Soft light blue accent */
+            --bg-main: #fcfbfa;      /* Warm off-white */
+            --bg-card: #ffffff;      /* Pure white for cards */
+            --text-main: #2d3748;    /* Dark charcoal text */
+            --text-muted: #718096;   /* Gray muted text */
+            --alert-bg: #fff5f5;     /* Soft red for warnings */
+            --alert-text: #c53030;   /* Deep red text */
+            --alert-border: #feb2b2; /* Light red border */
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            color: #333; /* Barva textu */
-            background-color: #FFFFFF; /* Barva pozadí */
+            box-sizing: border-box;
         }
-        header {
-            background-color: #ccc;
-            color: #b;
-            padding: 20px;
-            text-align: center;
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
+
+        /* Navigation */
+        nav {
+            background-color: var(--bg-card);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
-            flex-wrap: wrap; /* Zalomení na nový řádek */
-            justify-content: center; /* Zarovnání na střed */
-        }
-        .section {
-            width: calc(33.33% - 20px); /* Rozšíření na třetinu šířky s mezerou */
-            border-radius: 5px;
-            padding: 10px;
-            margin: 0 10px 20px; /* Mezera dolů */
-            color: #fff;
-            cursor: pointer; /* Přidá kurzor ukazující na možnost interakce */
-            text-align: center; /* Zarovnání textu na střed */
-        }
-        .psychotesty, .psychotesty-more-info {
-            background-color: #c28b0a; /* Oranžový rám pro Psychotesty */
-        }
-        .terapie, .terapie-more-info {
-            background-color: #0ac29d; /* Zelený rám pro Terapie */
-        }
-        .kontakt, .kontakt-more-info {
-            background-color: #b50e30; /* Červený rám rám pro Kontakt */
-        }
-        .cenik, .cenik-more-info {
-            background-color: #990099; /* Červený rám rám pro Kontakt */
-        }
-        .gray-frame {
-            background-color: #ccc; /* Šedý rám */
-            padding: 10px;
-            border-radius: 5px;
-            color: #000; /* Černá barva textu */
-            margin-bottom: 20px; /* Mezera dolů */
-            width: 100%; /* Rozšíření na plnou šířku */
-        }
-        .more-info {
-            width: calc(100% - 20px); /* Rozšíření na plnou šířku s mezerou */
-            background-color: #c28b0a; /* Oranžový rám pro "Více informací" */
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff; /* Bílá barva textu */
-            text-align: center;
-            margin: 0 10px 20px; /* Mezera dolů */
-        }
-        .more-info1 {
-            width: calc(100% - 20px); /* Rozšíření na plnou šířku s mezerou */
-            background-color: #0ac29d; /* Oranžový rám pro "Více informací" */
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff; /* Bílá barva textu */
-            text-align: center;
-            margin: 0 10px 20px; /* Mezera dolů */
-        } 
-     .more-info2 {
-            width: calc(100% - 20px); /* Rozšíření na plnou šířku s mezerou */
-            background-color:  #b50e30; /* Oranžový rám pro "Více informací" */
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff; /* Bílá barva textu */
-            text-align: center;
-            margin: 0 10px 20px; /* Mezera dolů */
-         } 
-     .more-info3 {
-            width: calc(100% - 20px); /* Rozšíření na plnou šířku s mezerou */
-            background-color:  #990099; /* Oranžový rám pro "Více informací" */
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff; /* Bílá barva textu */
-            text-align: center;
-            margin: 0 10px 20px; /* Mezera dolů */
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Mgr. Emily Penner Ph.D</h1>
-    </header>
-    <div class="container">
-        <div class="section psychotesty" onclick="scrollToPsychotesty()">
-            <h2>Psychotesty</h2>
-        </div>
-        <div class="section terapie" onclick="scrollToTerapie()">
-            <h2>Terapie</h2>
-        </div>
-        <div class="section kontakt" onclick="scrollToKontakt()">
-            <h2>Kontakt</h2>
-        </div>
-        <div class="section cenik" onclick="scrollToCenik()">
-            <h2>Ceník</h2>
-        </div>
-    </div>
-    <div class="container">
-        <div id="grayFrame" class="gray-frame">
-            <h2>O mně</h2>
-            <p>Jsem renomovaná psycholožka s bohatým profesním pozadím a širokým spektrem zkušeností. Moje práce je zaměřena na poskytování kvalitní péče a podpory jednotlivcům v oblasti duševního zdraví.</p>
-            <h3>Osobní informace:</h3>
-            <p><strong>Datum narození:</strong> 17. května 1975</p>
-            <p><strong>Věk:</strong> 48 let</p>
-            <p><strong>Rodné místo:</strong> Palo Alto, Kalifornie</p>
-            <h3>Profesní profil:</h3>
-            <p><strong>Povolání:</strong> Psycholožka</p>
-            <p><strong>Vzdělání:</strong> Doktorka psychologie, Standfordská univerzita</p>
-            <h3>Kariérní přehled:</h3>
-            <p>Mám více než dvacet let zkušeností v oblasti psychologie a duševního zdraví. Moje práce zahrnuje klinickou práci, výzkum a vzdělávání.</p>
-            <h3>Profesní zkušenosti:</h3>
-            <ul>
-                 <li><strong>2024 - součastnost:</strong> Privátní praxe, Montgomery, San Andreas</li>
-                <li><strong>2023 - 2024:</strong> Klinická psycholožka v klinické psychologii Dillimore.</li>
-                <li><strong>2005 - 2023:</strong> Privátní praxe, Palo Alto, Kalifornie</li>
-                <li><strong>1998 - 2005:</strong> Psychoterapeutka, Kalifornská klinika pro duševní zdraví, San Francisco</li>
-                <li><strong>1995 - 1998:</strong> Klinická psycholožka, Zdravotnické centrum Standfordské univerzity, Stanford, Kalifornie</li>
-            </ul>
-            <h3>Vzdělání:</h3>
-            <ul>
-                <li><strong>Doktorát v psychologii:</strong> Standfordská univerzita, Stanford, Kalifornie (Rok promoci: 2001)</li>
-                <li><strong>Magisterský titul v psychologii:</strong> Standfordská univerzita, Stanford, Kalifornie (Rok promoci: 1997)</li>
-            </ul>
-            <h3>Ostatní dovednosti a zájmy:</h3>
-            <p>Mimo svou práci v oblasti psychologie mám  zájem o umění, hudbu a cestování. Ve svém volném čase se věnuji malování.</p>
-        </div>
-    </div>
-    <div class="container">
-        <div id="psychotesty-more-info" class="more-info">
-            <h2>Psychotesty</h2>
-            <p>Psychotesty jsou důležitým nástrojem pro zhodnocení psychického stavu a osobnosti. Pokud máte zájem o více informací o psychotestech a jejich využití, pokračujte na <a href="https://leosight.cz/forum/topic/15906" target="_blank" style="color: #fff;">tuto stránku</a> nebo https://ratt.cz/HULE. <p>
-            <p><strong>PSYCHOTESTY ZRUŠENY AŽ DO ODVOLÁNÍ</strong></p>
-        </div>
-    </div>
-    <div class="container">
-        <div id="terapie-more-info" class="more-info1">
-            <h2>Terapie</h2>
-            <p>Terapie pro duševní zdraví. Individuální péče, bezpečné prostředí, osobní růst. Řešíme stres, úzkost, deprese, vztahy a trauma. Začněte cestu ke zlepšení dnes pro více informací pokračujte na <a href="https://ratt.cz/MAZE" target="_blank" style="color: #fff;">tuto stránku</a> nebo https://ratt.cz/MAZE. <p>
-        </div>
-    </div>
-    <div class="container">
-        <div id="kontakt-more-info" class="more-info2">
-            <h2>Kontakt</h2>
-            <p>     648273 📞  <p>
-            <p>  emily.penner@post.ic<p>
-            <p>  @emilypenner</p>
-            <p> Sdílené kanceláře Montgomery</p>
-        </div>
-    </div>
-     <div class="container">
-          <div id="cenik-more-info" class="more-info3">
-     <h2>Ceník - Mgr. Emily Penner Ph.D.</h2>
-    <table>
-        <tr>
-            <th>Typ konzultace</th>
-            <th>Doba trvání</th>
-            <th>Cena</th>
-        </tr>
-        <tr>
-            <td>Individuální podpůrná terapie</td>
-            <td>60 minut</td>
-            <td>30 000Kč</td>
-        </tr>
-         <tr>
-            <td>Individuální léčebná terapie</td>
-            <td>60 minut</td>
-            <td>50 000Kč</td>
-        </tr>
-        <tr>
-            <td>Skupinová terapie (max. 5 osob)</td>
-            <td>90 minut</td>
-            <td>20 000Kč za osobu</td>
-        </tr>
-        <tr>
-            <td><strike>Psychotest</strike></td>
-            <td><strike>60+ minut</strike></td>
-            <td><strike>500 000Kč</strike></td>
-        </tr>
-    <script>
-        function scrollToPsychotesty() {
-            var psychotestyFrame = document.getElementById("psychotesty-more-info");
-            psychotestyFrame.scrollIntoView({ behavior: 'smooth' });
+            justify-content: space-between;
+            align-items: center;
         }
 
-        function scrollToTerapie() {
-            var terapieFrame = document.getElementById("terapie-more-info");
-            terapieFrame.scrollIntoView({ behavior: 'smooth' });
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
         }
 
-        function scrollToKontakt() {
-            var kontaktFrame = document.getElementById("kontakt-more-info");
-            kontaktFrame.scrollIntoView({ behavior: 'smooth' });
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
-        
-        function scrollToCenik() {
-            var cenikFrame = document.getElementById("cenik-more-info");
-            cenikFrame.scrollIntoView({ behavior: 'smooth' });
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
         }
-    </script>
-</body>
-</html>
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #4a5568;
+        }
+
+        /* Main Sections layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem 2rem;
+        }
+
+        section {
+            padding: 4rem 0 2rem 0;
+            scroll-margin-top: 5rem;
+        }
+
+        .section-heading {
+            font-size: 1.75rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.75rem;
+        }
+
+        /* Services Cards grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f7;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Alert styling for cancelled psychotests */
+        .alert {
+            background-color: var(--alert-bg);
+            border: 1px solid var(--alert-border);
+            color: var(--alert-text);
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* About me details layout */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        .meta-box {
+            background-color: #f7fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .meta-box h4 {
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-list {
+            list-style: none;
+        }
+
+        .meta-list li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .meta-list span {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        /* Timeline for career */
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-1.5rem - 6px);
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var
