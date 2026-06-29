@@ -261,4 +261,288 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color: var
+            background-color: var(--accent);
+            border: 2px solid var(--bg-main);
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .timeline-location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Table */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f7;
+        }
+
+        th {
+            background-color: #f7fafc;
+            color: var(--primary-dark);
+            text-align: left;
+            padding: 1.25rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #edf2f7;
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        /* Contact Details grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-method {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-value {
+            font-weight: 500;
+            color: var(--text-main);
+            word-break: break-all;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Mgr. Emily Penner Ph.D.</a>
+            <ul class="nav-links">
+                <li><a href="#o-mne">O mně</a></li>
+                <li><a href="#sluzby">Služby</a></li>
+                <li><a href="#cenik">Ceník</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Mgr. Emily Penner Ph.D.</h1>
+        <div class="subtitle">Renomovaná psycholožka & terapeutka</div>
+        <p>Poskytování vysoce kvalitní péče, profesionální podpory a bezpečného zázemí pro váš osobní růst a duševní zdraví.</p>
+    </header>
+
+    <main class="container">
+
+        <section id="o-mne">
+            <h2 class="section-heading">O mně</h2>
+            <div class="profile-container">
+                <div>
+                    <div class="meta-box">
+                        <h4>Osobní informace</h4>
+                        <ul class="meta-list">
+                            <li><span>Věk / Narození</span>48 let (17. května 1975)</li>
+                            <li><span>Rodné místo</span>Palo Alto, Kalifornie</li>
+                            <li><span>Vzdělání</span>Doktorka psychologie,<br>Stanfordova univerzita</li>
+                            <li><span>Zájmy</span>Umění, hudba, cestování a malování</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #4a5568;">
+                        Jsem renomovaná psycholožka s bohatým profesním pozadím a širokým spektrem zkušeností. Moje práce je zaměřena na poskytování kvalitní péče a podpory jednotlivcům v oblasti duševního zdraví. Mám více než dvacet let zkušeností zahrnujících klinickou praxi, akademický výzkum a vzdělávání.
+                    </p>
+                    
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--primary-dark); font-weight: 500;">Profesní historie & vzdělání</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024 - současnost</div>
+                            <div class="timeline-title">Privátní praxe</div>
+                            <div class="timeline-location">Montgomery, San Andreas</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2023 - 2024</div>
+                            <div class="timeline-title">Klinická psycholožka</div>
+                            <div class="timeline-location">Klinická psychologie Dillimore, San Andreas</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2005 - 2023</div>
+                            <div class="timeline-title">Privátní praxe</div>
+                            <div class="timeline-location">Palo Alto, Kalifornie</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2001</div>
+                            <div class="timeline-title">Doktorát v psychologii (Ph.D.)</div>
+                            <div class="timeline-location">Stanfordova univerzita, Stanford, Kalifornie</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1998 - 2005</div>
+                            <div class="timeline-title">Psychoterapeutka</div>
+                            <div class="timeline-location">Kalifornská klinika pro duševní zdraví, San Francisco</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1997</div>
+                            <div class="timeline-title">Magisterský titul v psychologii (Mgr.)</div>
+                            <div class="timeline-location">Stanfordova univerzita, Stanford, Kalifornie</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1995 - 1998</div>
+                            <div class="timeline-title">Klinická psycholožka</div>
+                            <div class="timeline-location">Zdravotnické centrum Stanfordovy univerzity, Stanford, Kalifornie</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sluzby">
+            <h2 class="section-heading">Nabízené služby</h2>
+            <div class="services-grid">
+                <div class="card">
+                    <h3>Psychoterapie</h3>
+                    <p>Terapie pro duševní zdraví staví na individuální péči, bezpečném prostředí a podpoře osobního růstu. Společně řešíme náročné životní situace, chronický stres, úzkosti, deprese, partnerské či rodinné vztahy a prožitá traumata. Začněte svou cestu ke zlepšení kvality života ještě dnes.</p>
+                    <a href="https://ratt.cz/MAZE" class="card-link" target="_blank">Více informací o terapii &rarr;</a>
+                </div>
+                <div class="card" style="opacity: 0.85;">
+                    <h3>Psychotesty & diagnostika</h3>
+                    <p>Psychotesty představují klíčový a exaktní nástroj pro objektivní zhodnocení psychického stavu, kognitivních schopností a struktury osobnosti. Slouží k přesnému zacílení následné péče či specifickému posouzení způsobilosti.</p>
+                    <a href="https://ratt.cz/HULE" class="card-link" target="_blank" style="margin-bottom: 1rem; display: inline-block;">Více o psychodiagnostice &rarr;</a>
+                    <div class="alert">
+                        PSYCHOTESTY ZRUŠENY AŽ DO ODVOLÁNÍ
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cenik">
+            <h2 class="section-heading">Ceník služeb</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Typ konzultace / úkonu</th>
+                            <th>Doba trvání</th>
+                            <th>Cena</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Individuální podpůrná terapie</td>
+                            <td>60 minut</td>
+                            <td class="price-tag">30 000 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>Individuální léčebná terapie</td>
+                            <td>60 minut</td>
+                            <td class="price-tag">50 000 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>Skupinová terapie (maximálně 5 osob)</td>
+                            <td>90 minut</td>
+                            <td class="price-tag">20 000 Kč <span style="font-weight: normal; font-size: 0.85rem; color: var(--text-muted);">za osobu</span></td>
+                        </tr>
+                        <tr>
+                            <td>Psychotest <span style="font-weight: normal; font-size: 0.85rem; color: var(--alert-text);">(aktuálně nedostupné)</span></td>
+                            <td>60+ minut</td>
+                            <td class="price-tag" style="text-decoration: line-through; opacity: 0.5;">500 000 Kč</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="kontakt">
+            <h2 class="section-heading">Kontakt</h2>
+            <div class="contact-grid">
+                <div class="contact-method">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-value">648273</div>
+                    <div class="contact-label">Telefonní číslo</div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-value">emily.penner@post.ic</div>
+                    <div class="contact-label">E-mailová adresa</div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-value">@emilypenner</div>
+                    <div class="contact-label">Sociální sítě</div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-value">Sdílené kanceláře Montgomery</div>
+                    <div class="contact-label">Lokalita ordinace</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mgr. Emily Penner Ph.D. Všechna práva vyhrazena. Privátní psychologická praxe.</p>
+    </footer>
+
+</body>
+</html>
