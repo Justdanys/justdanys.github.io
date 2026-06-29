@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Pleskač | Byznys, Management & IT Consulting</title>
+    <style>
+        :root {
+            --primary: #0f172a;       /* Slate 900 - Dark Professional */
+            --primary-light: #1d4ed8; /* Royal Blue */
+            --accent: #38bdf8;        /* Light Blue */
+            --bg-body: #f1f5f9;       /* Light Slate */
+            --bg-card: #ffffff;       /* White */
+            --text-main: #1e293b;     /* Slate 800 */
+            --text-muted: #64748b;    /* Slate 500 */
+            --border-color: #e2e8f0;  /* Slate 200 */
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Navigace */
+        nav {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hlavička */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 7rem 2rem 9rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--bg-body);
+            transform: skewY(-2deg);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            position: relative;
+            z-index: 10;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(29, 78, 216, 0.4);
+        }
+
+        .btn-cta:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(29, 78, 216, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -3rem auto 2rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 6rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 30px;
+            background-color: var(--primary-light);
+            border-radius: 3px;
+        }
+
+        /* O mně layout */
+        .about-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            background-color: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .stat-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .stat-item strong {
+            display: block;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        .stat-item span {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Zkušenosti (Kariéra) - Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #e2e8f0;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.3rem;
+            width: 16px;
+            height: 16px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            border: 4px solid var(--bg-card);
+            box-shadow: 0 0 0 2px #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: var(--primary-light);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+
+        /* Projekty Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, #ffffff, #f1f5f9);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e1;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #e2e8f0;
+            color: #334155;
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* Akademie Grid */
+        .study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .study-item {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .study-item h4 {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .study-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            background: #f1f5f9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Kontakt sekce */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-light);
+            background-color: #ffffff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            color: var(--primary-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .contact-text h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text a {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary-light);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .about-content { grid-template-columns: 1fr; }
+            section { padding: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 6rem 1rem 7rem 1rem; }
+            header h1 { font-size: 2.8rem; }
+            section { padding: 2rem 1.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Daniel<span>Pleskač</span></a>
+            <ul class="nav-links">
+                <li><a href="#o-mne">Profil</a></li>
+                <li><a href="#zkusenosti">Zkušenosti</a></li>
+                <li><a href="#sluzby">Služby</a></li>
+                <li><a href="#vdelani">Vzdělání</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Komplexní řešení pro byznys & IT</h1>
+        <p>Propojuji svět strategického managementu, ekonomické analýzy a moderních technologií. Pomáhám firmám optimalizovat procesy, řídit projekty a vytvářet datově podložená řešení pro udržitelný růst.</p>
+        <a href="#kontakt" class="btn-cta">Sjednat konzultaci</a>
+    </header>
+
+    <main class="container">
+
+        <!-- O mně (Business zaměření) -->
+        <section id="o-mne">
+            <h2 class="section-title">Profesní profil</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Jsem konzultant a projektový manažer s unikátním mezioborovým přesahem. Díky souběžnému studiu **ekonomie, managementu a aplikované informatiky** na VŠE v Praze dokážu pohlížet na složité firemní výzvy z více úhlů a nacházet funkční synergie.
+                    </p>
+                    <p>
+                        Specializuji se na překonávání propasti mezi byznysovými požadavky a IT realizací. Věřím, že sebelépe naprogramovaný systém je k ničemu, pokud nereflektuje reálné ekonomické cíle podniku. Naopak ani ta nejlepší byznysová strategie dnes nemůže uspět bez adekvátní technologické opory.
+                    </p>
+                    <p>
+                        Mým cílem je pomáhat firmám odstraňovat neefektivitu, digitalizovat zastaralé postupy a nastavovat procesy tak, aby technologie pracovaly pro lidi, nikoliv naopak.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <strong>Klíčové kompetence</strong>
+                        <span>Business analýza, IT strategie, Projektové řízení</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Přístup k projektům</strong>
+                        <span>Datově orientovaný, agilní (Scrum/Kanban)</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Lokalita působnosti</strong>
+                        <span>Praha / Celá ČR (Remote)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profesní Zkušenosti -->
+        <section id="zkusenosti">
+            <h2 class="section-title">Vybrané zkušenosti a spolupráce</h2>
+            <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem; max-width: 800px;">
+                Mám za sebou projekty pro korporátní klienty i dynamické technologické firmy, kde jsem se podílel na propojování obchodních cílů s technologickými řešeními.
+            </p>
+
+            <div class="timeline">
+                
+                <!-- PPF Banka -->
+                <div class="timeline-item">
+                    <div class="timeline-date">Současnost / Nedávná spolupráce</div>
+                    <div class="timeline-content">
+                        <h3>PPF Banka a.s.</h3>
+                        <h4>Business / IT & Data konzultant</h4>
+                        <p>Spolupráce na analýze, optimalizaci a digitalizaci interních bankovních procesů. Zajišťování komunikace mezi byznysovými odděleními (corporate finance, risk management) a vývojářskými (IT) týmy.</p>
+                        <div class="tags">
+                            <span class="tag">Banking & Finance</span>
+                            <span class="tag">Procesní audit</span>
+                            <span class="tag">Digitalizace</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-commerce / FinTech -->
+                <div class="timeline-item">
+                    <div class="timeline-date">Projektová činnost</div>
+                    <div class="timeline-content">
+                        <h3>Optimalizace pro E-commerce & FinTech</h3>
+                        <h4>Projektový manažer & Analytik</h4>
+                        <p>Návrhy architektury pro integraci platebních bran a CRM/ERP systémů pro střední podniky (MSP). Vytváření finančních modelů pro hodnocení návratnosti (ROI) softwarových investic.</p>
+                        <div class="tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">ERP Integrace</span>
+                            <span class="tag">Finanční modelování</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Další -->
+                <div class="timeline-item">
+                    <div class="timeline-date">Freelance Consulting</div>
+                    <div class="timeline-content">
+                        <h3>Nezávislé poradenství</h3>
+                        <h4>Technologický a strategický konzultant</h4>
+                        <p>Poskytování konzultací začínajícím projektům a startupům ohledně nastavení firemních procesů, efektivního využití moderních technologií a základů podnikového managementu.</p>
+                        <div class="tags">
+                            <span class="tag">Management</span>
+                            <span class="tag">Startup consulting</span>
+                            <span class="tag">Strategie</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projekty a služby -->
+        <section id="sluzby">
+            <h2 class="section-title">Oblasti mých služeb</h2>
+            <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Nabízím komplexní B2B služby pokrývající celý životní cyklus firemních projektů – od úvodní ekonomické analýzy až po nasazení IT infrastruktury.</p>
+            
+            <div class="projects-grid">
+                <!-- Služba 1 -->
+                <div class="project-card">
+                    <div class="project-icon">💻</div>
+                    <h3>IT architektura & Digitalizace</h3>
+                    <p>Návrh a implementace softwarových řešení na míru. Analýza současného stavu IT infrastruktury ve firmách a navrhování efektivnějších alternativ pro snížení nákladů a zvýšení výkonu.</p>
+                    <div class="tags">
+                        <span class="tag">Aplikovaná informatika</span>
+                        <span class="tag">Automatizace</span>
+                    </div>
+                </div>
+
+                <!-- Služba 2 -->
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <h3>Datová & Ekonomická analýza</h3>
+                    <p>Zpracování tržních analýz, finanční modelování a vizualizace dat pro podporu top managementu. Tvorba podkladů pro strategické plánování, budgetování a optimalizaci firemních nákladů.</p>
+                    <div class="tags">
+                        <span class="tag">Ekonomie</span>
+                        <span class="tag">Datová analytika</span>
+                    </div>
+                </div>
+
+                <!-- Služba 3 -->
+                <div class="project-card">
+                    <div class="project-icon">📈</div>
+                    <h3>Projektový management</h3>
+                    <p>Vedení projektů od úvodní studie proveditelnosti (feasibility study) až po úspěšné nasazení. Agilní řízení týmů, alokace zdrojů a přísné dodržování časového a finančního plánu (trojimperativu).</p>
+                    <div class="tags">
+                        <span class="tag">Management</span>
+                        <span class="tag">Agile / Scrum</span>
+                    </div>
+                </div>
+                
+                <!-- Služba 4 -->
+                <div class="project-card">
+                    <div class="project-icon">⚙️</div>
+                    <h3>Procesní audit a re-engineering</h3>
+                    <p>Hloubková analýza stávajících firemních procesů (BPA). Identifikace úzkých hrdel (bottlenecks) a návrh nového, štíhlejšího fungování s využitím moderních softwarových nástrojů.</p>
+                    <div class="tags">
+                        <span class="tag">Procesní řízení</span>
+                        <span class="tag">BPMN</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Akademické pozadí -->
+        <section id="vdelani">
+            <h2 class="section-title">Akademické zázemí (VŠE Praha)</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem;">Široký akademický základ mi umožňuje vidět souvislosti tam, kde jiní vidí jen oddělené disciplíny.</p>
+            
+            <div class="study-grid">
+                <div class="study-item">
+                    <div class="study-badge">Bakalářské studium • Prezenční</div>
+                    <h4>Ekonomie</h4>
+                    <p style="color: #475569; font-size: 0.95rem;">Hluboké porozumění tržním mechanismům, makro/mikroekonomická analýza a schopnost predikovat ekonomické trendy pro strategické rozhodování.</p>
+                </div>
+
+                <div class="study-item" style="border-top-color: #8b5cf6;">
+                    <div class="study-badge">Bakalářské studium • Kombinované</div>
+                    <h4>Management</h4>
+                    <p style="color: #475569; font-size: 0.95rem;">Strategické řízení podniku, vedení lidských zdrojů, marketing a efektivní organizace firemních procesů v praxi.</p>
+                </div>
+
+                <div class="study-item" style="border-top-color: #10b981;">
+                    <div class="study-badge">Bakalářské studium • Prezenční</div>
+                    <h4>Aplikovaná informatika</h4>
+                    <p style="color: #475569; font-size: 0.95rem;">Softwarové inženýrství, návrh databází, podnikové informační systémy a technická implementace komerčních řešení.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="kontakt">
+            <h2 class="section-title">Zahajte spolupráci</h2>
+            <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.15rem; max-width: 700px;">
+                Potřebujete optimalizovat procesy, zhodnotit investici do IT nebo hledáte schopného projektového manažera? Ozvěte se mi a domluvíme si úvodní online schůzku.
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-text">
+                        <h4>Osobní & Business E-mail</h4>
+                        <a href="mailto:pleskacdaniel@gmail.com">pleskacdaniel@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🎓</div>
+                    <div class="contact-text">
+                        <h4>Univerzitní kontakt (VŠE)</h4>
+                        <a href="mailto:pled02@vse.cz">pled02@vse.cz</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Daniel Pleskač | Business, Management & IT Consulting. Všechna práva vyhrazena.</p>
+    </footer>
+
+</body>
+</html>
