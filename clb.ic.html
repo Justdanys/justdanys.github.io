@@ -3,156 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firma CLB</title>
+    <title>Cluckin Bell | Fast Food San Andreas</title>
     <style>
-        /* Styly zde */
+        /* Základní proměnné pro firemní barvy */
+        :root {
+            --primary: #FACC15; /* Cluckin žlutá */
+            --secondary: #DC2626; /* Cluckin červená */
+            --dark: #1F2937; /* Tmavě šedá */
+            --light: #F3F4F6; /* Světlé pozadí */
+            --white: #FFFFFF;
+        }
+
+        /* Reset a základní typografie */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: var(--light);
         }
 
+        /* Hlavička a navigace */
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--secondary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Hero sekce (Úvodní banner) */
+        .hero {
+            background: linear-gradient(rgba(31, 41, 55, 0.9), rgba(31, 41, 55, 0.8)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
             text-align: center;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
+            padding: 6rem 2rem;
+            border-bottom: 8px solid var(--primary);
         }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-transform: uppercase;
         }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
         }
 
-        nav ul li a {
-            color: #fff;
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 1rem 2.5rem;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
         }
 
-        main {
-            padding-top: 80px; /* aby obsah nebyl zakryt hlavičkou */
+        .btn:hover {
+            background-color: #B91C1C;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
         }
 
-        section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-bottom: 1px solid #ddd;
+        /* Kontejner pro obsah */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
-        h2 {
-            color: #333;
-        }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
+        .section-title {
             text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            color: var(--dark);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        /* Textové bloky */
+        .text-block {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary);
+        }
+
+        /* Grid pro služby */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Patička */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 5px solid var(--primary);
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-highlight {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responzivita */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Firma CLB</h1>
-        <nav>
-            <ul>
-                <li><a href="#o-nas">O nás</a></li>
-                <li><a href="#sluzby">Služby</a></li>
-                <li><a href="#kariera">Kariéra</a></li>
-                <li><a href="https://leosight.cz/forum/topic/15498" target="_blank">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <br>
-        <br>
-        <section id="o-nas">
 
-          
-            <h2>O nás</h2>
-            <p>Jsme zavedenou firmou specializující se na fast food a pečlivou péči o naše pobočky. Jsme hrdí na naši kvalitní nabídku jídel a poskytujeme nezapomenutelný zážitek pro naše zákazníky po celém San Andreas.</p>
-            <!-- Další obsah o firmě -->
-        </section>
-        <section id="sluzby">
-            <h2>Naše služby</h2>
-            <ul>
-                <li>Web design a vývoj</li>
-                <li>Digitální marketing</li>
-                <li>Softwarové aplikace na míru</li>
-                <!-- Další služby -->
-            </ul>
-        </section>
-        <section id="kariera">
-            <h2>Kariéra</h2>
-            <p>Vítejte ve světě příležitostí! Pokud jste ambiciózní a kreativní jedinec, hledáme právě vás.</p>
-            <p>Aktuálně nabízíme následující pracovní pozice:</p>
-            <ul>
-                <li>Zaměstnanec - sídlo MG (rozvoz balíčků a střežení objektu po Red County)</li>
-                <br>
-                <li>Zaměstnanec - sídlo SF (přeprava hotovosti, kamionová doprava, elektrikářské služby</li>
-                <br>
-                <li>Vedení společnosti (MNG,HR)</li>
-                <br>
-                <!-- Další pracovní pozice -->
-            </ul>
-            <p>Pokud jste se nenašli v naší nabídce, ale cítíte, že byste mohli přinést hodnotu do našeho týmu, neváhejte nás kontaktovat.</p>
-            <button onclick="window.open('https://leosight.cz/forum/topic/15498', '_blank')">Kontaktujte nás</button>
-        </section>
-        <section id="kontakt">
-            <h2>Kontaktujte nás</h2>
-            <address>
-                Firma CLB<br>
-                Adresa: San Fierro, Garcia<br>
-                Email: sindy.blue@post.ic<br>
-                <br>
-                <br>
-                <br>
-            </address>
-        </section>
+    <header>
+        <div class="logo">Cluckin<span>Bell</span></div>
+    </header>
+
+    <section class="hero">
+        <h1>Vítejte v naší rodině</h1>
+        <p>Jsme zavedenou firmou specializující se na fast food a pečlivou péči o naše pobočky. Jsme hrdí na naši kvalitní nabídku jídel a poskytujeme nezapomenutelný zážitek pro naše zákazníky po celém San Andreas.</p>
+        <a href="#o-nas" class="btn">Poznejte nás více</a>
+    </section>
+
+    <main class="container">
+        
+        <div id="o-nas" class="text-block">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 1rem;">O společnosti</h2>
+            <p>Naše služby zahrnují širokou škálu činností, abychom mohli uspokojit potřeby našich zákazníků i našich poboček. Náš závazek k profesionalitě a kvalitě nás posouvá výše a dělá nás jedním z nejlepších řetězců ve fast foodovém odvětví.</p>
+            <br>
+            <p>Svou snahou o maximální spokojenost našich zákazníků i zaměstnanců se naše společnost neustále rozvíjí a inovuje. Jsme hrdí na naši oddanost k udržitelnému rozvoji a etickému podnikání. Cluckin Bell se neustále snaží přinášet nové a inovativní produkty, které uspokojí chuťové buňky našich zákazníků. Jsme hrdí na naši kvalitní fast food nabídku, kterou doplňujeme péčí o naše pobočky a personál.</p>
+        </div>
+
+        <h2 class="section-title">Naše služby a divize</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Rozvozová služba</h3>
+                <p>Jsme velmi pyšní na naši rozvozovou službu, která umožňuje zákazníkům vychutnat si naše vynikající jídlo pohodlně v pohodlí domova nebo kanceláře. Díky profesionálním kurýrům balíčků zajistíme, že objednávky dorazí včas a ve špičkové kondici.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>Převoz hotovosti a zásob</h3>
+                <p>Jedním z našich klíčových zaměření je zajišťování bezpečného a rychlého převozu hotovosti a zásob mezi pobočkami. Naši kurýři jsou rychlí, spolehliví a zodpovědní, aby zajistili, že finance a zásoby jsou vždy na správném místě.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Střežení objektů</h3>
+                <p>Zabezpečení poboček je pro nás prioritou. Poskytujeme střežení objektu, které zajišťuje ochranu provozoven 24/7. Naši střežníci jsou odborně vyškoleni a ochotní reagovat na jakékoli situace ohrožující bezpečnost.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Vedení a management</h3>
+                <p>S našimi kompetentními manažery s dlouholetými zkušenostmi dosahujeme neustálého růstu. Naše ředitelství je neustále zaměřeno na inovace a sledování trendů, abychom udrželi naši pozici v čele odvětví.</p>
+            </div>
+        </div>
+
+        <div class="text-block" style="border-left-color: var(--secondary);">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 1rem;">Naše filozofie a kariéra</h2>
+            <p>S úžasem vítáme nové členy do naší společnosti Cluckin Bell, ať už jako zákazníky nebo potenciální zaměstnance. Naše filozofie spočívá v nabízení nejlepších jídel a služeb, a to vše s láskou a péčí, kterou jsme si vybudovali během let.</p>
+            <br>
+            <p>V našem úsilí poskytovat nejlepší služby se však neomezujeme pouze na kulinární zážitky. Věříme v rozmanitost a komplexní péči o naše pobočky. Právě proto klade naše vedení důraz na efektivní řízení a plánování. Významné vzdělání a odborná kvalifikace našich vedoucích pracovníků v ředitelství jsou základem pro naši kvalitu a dlouhodobou udržitelnost. Naše závazky k etice, bezpečnosti a ochraně životního prostředí jsou nám blízké a klíčové pro budoucnost naší společnosti.</p>
+            <br>
+            <p><strong>Věříme, že právě naše vášeň pro kvalitu a péči o detaily nás odlišuje od konkurence. Jsme přesvědčeni, že se do naší rodiny Cluckin Bell rádi připojíte!</strong></p>
+        </div>
+
     </main>
+
     <footer>
-        <p>&copy; 2024 Firma Cluckin Bell. Všechna práva vyhrazena.</p>
+        <p>Děkujeme za důvěru, kterou do nás vkládáte, a za to, že si vybíráte naši společnost Cluckin Bell jako svého partnera v oblasti stravování. Jsme nadšeni, že vás můžeme přivítat ve své fast foodové říši a zprostředkovat vám skvělé gastronomické dobrodružství.</p>
+        <p class="footer-highlight">Vaše spokojenost je naší prioritou, a my jsme tu, abychom vám nabídli tu nejlepší chuť a servis!</p>
+        <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+            &copy; 2026 Cluckin Bell San Andreas. Všechna práva vyhrazena.
+        </div>
     </footer>
 
-    <!-- Skript pro plynulé scrollování -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
